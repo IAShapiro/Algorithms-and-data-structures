@@ -6,67 +6,9 @@
 
 int n, m, k;
 std::vector<long> dist_1_to_x, dist_x_to_n;
-std::vector <std::vector <std::pair<std::pair<int, int>, int> > > graph0, graph_reverse;//graph[i] - список ребер из вершины i. 
-// std::pair<std::pair<int, int>, int> - <<вершина-конец, вес_ребра>, номер_ребра>
-/*
-std::vector<long> Dijkstra2(std::vector<long> dist, int start, std::vector<std::vector<std::pair<std::pair<int, int>, int>>> graph)
-{
-	dist[start] = 0;
-	std::vector<bool> visit(n);
+std::vector <std::vector <std::pair<std::pair<int, int>, int> > > graph0, graph_reverse;//graph[i] - СЃРїРёСЃРѕРє СЂРµР±РµСЂ РёР· РІРµСЂС€РёРЅС‹ i. 
+// std::pair<std::pair<int, int>, int> - <<РІРµСЂС€РёРЅР°-РєРѕРЅРµС†, РІРµСЃ_СЂРµР±СЂР°>, РЅРѕРјРµСЂ_СЂРµР±СЂР°>
 
-	for (int i = 0; i < n; i++) {
-		int min_vertex = -1;
-
-		for (int j = 0; j < n; ++j) {
-			if (!visit[j] && (min_vertex == -1 || dist[j] < dist[min_vertex])) {
-				min_vertex = j;
-			}
-		}
-
-		if (dist[min_vertex] == INT_MAX) {
-			break;
-		}
-
-		visit[min_vertex] = true;
-
-		for (int j = 0; j < graph[min_vertex].size(); j++) {
-			int vertex_end = graph[min_vertex][j].first.first;
-			long len = graph[min_vertex][j].first.second;
-
-			if (dist[min_vertex] + len < dist[vertex_end]) {
-				dist[vertex_end] = dist[min_vertex] + len;
-			}
-		}
-	}
-	return dist;
-}*/
-/*
-std::vector<long> Dijkstra3(std::vector<long> dist, int start, std::vector<std::vector<std::pair<std::pair<int, int>, int>>> graph)
-{
-	dist[start] = 0;
-
-	std::set <std::pair<int, long> > queue;
-	queue.insert(std::pair<int, long>{start, dist[start]});
-
-	while (!queue.empty()) {
-		int v = queue.begin()->first;
-		queue.erase(queue.begin());
-
-		for (int j = 0; j < static_cast<int>(graph[v].size()); j++) {
-			int vertex_end = graph[v][j].first.first;
-			long len = graph[v][j].first.second;
-
-			if (dist[v] + len < dist[vertex_end]) {
-				queue.erase(std::pair<int, long>{vertex_end, dist[vertex_end]});
-				dist[vertex_end] = dist[v] + len;
-				queue.insert(std::pair<int, long>{vertex_end, dist[vertex_end]});
-			}
-		}
-	}
-
-	return dist;
-}
-*/
 
 std::vector<long> Dijkstra(std::vector<long> dist, int start, std::vector<std::vector<std::pair<std::pair<int, int>, int>>> graph)
 {
